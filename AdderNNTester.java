@@ -13,19 +13,23 @@ public class AdderNNTester {
       // define the learning rate of our neural network
       double learning_rate = 0.000000195;
       
-      // initialize our graph-based neural network with ten nodes in its hidden layer and 1.875 * 10^-7 learning rate
-      AdderNeuralNet graph_nn = new AdderNeuralNet(num_hidden_nodes, learning_rate);
-      
       // define the train-test split as 80% 20% (arbitrary here but would matter for models with real data)
       double train_pct = 0.8;
       double test_pct = 0.2;
+      
+      // define the amount of random data that will be split in to train/test datasets
+      int dataset_size = 10000;
+      
+      
+      // initialize our graph-based neural network with ten nodes in its hidden layer and 1.95 * 10^-7 learning rate
+      AdderNeuralNet graph_nn = new AdderNeuralNet(num_hidden_nodes, learning_rate);
       
       // initialize maps for training and testing data
       Map<ArrayList<Double>, Double> train_data = new HashMap<>();
       Map<ArrayList<Double>, Double> test_data = new HashMap<>();
       
       // propagate the training data with two random input values and their sum as the output value
-      for (int i = 0; i < train_pct * 10000; i++) {
+      for (int i = 0; i < train_pct * dataset_size; i++) {
          
          // generate two random numbers between 0 and 1000
          double num1 = Math.random() * 1000;
@@ -45,7 +49,7 @@ public class AdderNNTester {
       }
       
       // propogate the testing data with two random input values and their sum as the output value
-      for (int i = 0; i < test_pct * 10000; i++) {
+      for (int i = 0; i < test_pct * dataset_size; i++) {
          
          // generate two random numbers between 0 and 1000
          double num1 = Math.random() * 1000;

@@ -11,7 +11,7 @@ public class GraphNode {
    public GraphNode (int num_incoming_weights) {
       
       // set the node's internal bias randomly between 0 and 1
-      this.bias = Math.random() * 1;
+      this.bias = Math.random();
       this.incoming_weights = new ArrayList<>();
       
       // for each incoming edge, assign a weight between 0 and 1
